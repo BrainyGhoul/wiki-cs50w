@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Resut
+{% endblock %}
+
+{% block body %}
+    <h3>Your query did not match to any of the the entries in the encyclopedia</h3>
+    <h1>Related entries:</h1>
+
+    <ul>
+        {% if length == 0 %}
+                <li>There is no entry relating to your search</li>
+        {% endif %}
+        {% for entry in entries %}
+            <li><a href="goto_entries:{{ entry }}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
